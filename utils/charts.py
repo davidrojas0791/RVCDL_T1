@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 def create_figure():
   return go.Figure()
   
-def plot_figure(fig, data, color, title):  
+def plot_figure(fig, data, color, titles):  
     
   y_axis = [float(x) for x in data]
   fig.add_scatter(
@@ -14,15 +14,15 @@ def plot_figure(fig, data, color, title):
     x=[x+1 for x in range(len(y_axis))],
     mode="lines+markers", 
     textposition="bottom center",
-    name=title,
+    name=titles['title'],
     line={"color": color, "width": 1}
   )
   fig.update_layout(
-    title="Fitness chart",
+    title=titles['title'],
     width=1024,
     height=400,
-    xaxis_title="Generations",
-    yaxis={"title": "Fitness value", "tickformat": ".2f"},
+    xaxis={"title": titles['x_title']},
+    yaxis={"title": titles['y_title'], "tickformat": ".2f"},
     font=dict(
       family="Courier New, monospace",
       size=14,
@@ -36,18 +36,20 @@ def plot_figure(fig, data, color, title):
 # data_y = [[3,8,9,5],[2,4,8,6],[1,8,9,2],[3,4,6,7]]
 # titles = {'title':'Titulo global', 'x_title': 'clases', 'y_title': 'valores'}
 def plot_multiBar(fig, labels, data_x, data_y, titles):
-    plot_data = []
-    for i in range(len(data_x)):
-        plot_data.append( go.Bar(name=labels[i], x=data_x, y=data_y[i]) )
-    fig.add_traces(data=plot_data)
-    fig.update_layout(
-        title=titles['title'],
-        xaxis={"title": titles['x_title']},
-        barmode='group',
-        yaxis={"title": titles['y_title'], "tickformat": ".2f"},
-        font=dict(
-            family="Courier New, monospace",
-            size=14,
-            color="#7f7f7f"
-        )
+  plot_data = []
+  for i in range(len(data_x)):
+    plot_data.append( go.Bar(name=labels[i], x=data_x, y=data_y[i]) )
+  fig.add_traces(data=plot_data)
+  fig.update_layout(
+    width=1024,
+    height=400,
+    title=titles['title'],
+    xaxis={"title": titles['x_title']},
+    yaxis={"title": titles['y_title'], "tickformat": ".2f"},
+    barmode='group',
+    font=dict(
+      family="Courier New, monospace",
+      size=14,
+      color="#7f7f7f"
     )
+  )
