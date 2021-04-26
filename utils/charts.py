@@ -30,14 +30,19 @@ def plot_figure(fig, data, color, title):
     )
   )
 
-def plot_multiBar(fig, labels, data_x, data_y, color, titles):
+# Example input data
+# labels = ['Elem1', 'Elem2', 'Elem3', 'Elem4']
+# data_x =  ['Elemen1', 'Elemen2', 'Elemen3', 'Elemen4']
+# data_y = [[3,8,9,5],[2,4,8,6],[1,8,9,2],[3,4,6,7]]
+# titles = {'title':'Titulo global', 'x_title': 'clases', 'y_title': 'valores'}
+def plot_multiBar(fig, labels, data_x, data_y, titles):
     plot_data = []
     for i in range(len(data_x)):
-        plot_data.append( go.Bar(name=labels[i], x=data_x[i], y=data_y[i]) )
+        plot_data.append( go.Bar(name=labels[i], x=data_x, y=data_y[i]) )
     fig.add_traces(data=plot_data)
     fig.update_layout(
         title=titles['title'],
-        x_axis_title=titles['x_title'],
+        xaxis={"title": titles['x_title']},
         barmode='group',
         yaxis={"title": titles['y_title'], "tickformat": ".2f"},
         font=dict(
