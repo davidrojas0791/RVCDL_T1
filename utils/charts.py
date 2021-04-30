@@ -6,27 +6,25 @@ import plotly.graph_objects as go
 def create_figure():
   return go.Figure()
   
-def plot_figure(fig, datasets, color, titles):  
+def plot_figure(fig, chart_data, title, x_title, y_title):  
 
-  i = 0
-  for dataset in datasets:
-    y_axis = [float(x) for x in dataset]
+  for dataset in chart_data:
+    y_axis = [float(x) for x in dataset['y_data']]
     fig.add_scatter(
       y=y_axis,
       x=[x+1 for x in range(len(y_axis))],
       mode="lines+markers", 
       textposition="bottom center",
-      name=titles['dataset_label'][i],
-      line={"color": color, "width": 1}
+      name=dataset['label'],
+      line={"color": dataset['color'], "width": 1}
     )
-    i += 1
 
   fig.update_layout(
-    title=titles['title'],
+    title=title,
     width=1024,
     height=400,
-    xaxis={"title": titles['x_title']},
-    yaxis={"title": titles['y_title'], "tickformat": ".2f"},
+    xaxis={"title": x_title},
+    yaxis={"title": y_title, "tickformat": ".2f"},
     font=dict(
       family="Courier New, monospace",
       size=14,
