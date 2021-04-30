@@ -6,17 +6,21 @@ import plotly.graph_objects as go
 def create_figure():
   return go.Figure()
   
-def plot_figure(fig, data, color, titles):  
-    
-  y_axis = [float(x) for x in data]
-  fig.add_scatter(
-    y=y_axis,
-    x=[x+1 for x in range(len(y_axis))],
-    mode="lines+markers", 
-    textposition="bottom center",
-    name=titles['title'],
-    line={"color": color, "width": 1}
-  )
+def plot_figure(fig, datasets, color, titles):  
+
+  i = 0
+  for dataset in datasets:
+    y_axis = [float(x) for x in dataset]
+    fig.add_scatter(
+      y=y_axis,
+      x=[x+1 for x in range(len(y_axis))],
+      mode="lines+markers", 
+      textposition="bottom center",
+      name=titles['dataset_label'][i],
+      line={"color": color, "width": 1}
+    )
+    i += 1
+
   fig.update_layout(
     title=titles['title'],
     width=1024,
@@ -40,6 +44,7 @@ def plot_multiBar(fig, labels, data_x, data_y, titles):
   for i in range(len(data_x)):
     plot_data.append( go.Bar(name=labels[i], x=data_x, y=data_y[i]) )
   fig.add_traces(data=plot_data)
+  
   fig.update_layout(
     width=1024,
     height=400,
