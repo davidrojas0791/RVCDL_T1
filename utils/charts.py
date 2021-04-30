@@ -39,7 +39,7 @@ def plot_figure(fig, chart_data, title, x_title, y_title):
 # titles = {'title':'Titulo global', 'x_title': 'clases', 'y_title': 'valores'}
 def plot_multiBar(fig, labels, data_x, data_y, titles):
   plot_data = []
-  for i in range(len(data_x)):
+  for i in range(len(labels)):
     plot_data.append( go.Bar(name=labels[i], x=data_x, y=data_y[i]) )
   fig.add_traces(data=plot_data)
   
