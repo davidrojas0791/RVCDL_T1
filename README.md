@@ -1,8 +1,8 @@
 ## CC7221 Reconocimiento Visual con Deep Learning, Universidad de Chile
-Integrantes: Humberto Rodrigues y David Rojas
-# Tarea 1: Evaluación de redes convolucionales para clasificación de imágenes
+Members: Humberto Rodrigues and David Rojas
+# Task 1: Convolutional Network evaluation on Image Classification
 
+Image classification is one of the most recurrent problems on computer science. Particularly in the last few years, significant contributions have been made to solve this problem. On this project we will be using three models: AlexNet, ResNet-50 and ResNext-50 and comparing their performance using different metrics, all of this on the impresee-clothing dataset (reduced version).
 
-La clasificación de imágenes es uno de los problemas más recurrentes en las ciencias de la computación. Particularmente en los últimos años han surgido grandes aportes para la resolución de este problema. En este trabajo estaremos abordando tres modelos: AlexNet, ResNet-50 y ResNext-50, y compararemos su rendimiento utilizando distintas métricas, usando el dataset de impresee-clothing (la versión reducida).
+All tests, source code and data manipulation are inside the `.ipynb` in this repo, it is also available in [Colab Notebook Link](https://colab.research.google.com/drive/1L3tFixxsyaqi6jXOAzC0h7GLXOlN0vug?usp=sharing)
 
-Todas las pruebas, código utilizado para las mismas y manejo de datos se encuentran en el ipynb de este repo y también se encuentran disponibles en este [Colab Notebook Link](https://colab.research.google.com/drive/1L3tFixxsyaqi6jXOAzC0h7GLXOlN0vug?usp=sharing)
